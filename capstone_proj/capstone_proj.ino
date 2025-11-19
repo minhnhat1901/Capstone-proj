@@ -57,3 +57,36 @@ void loop() {
 
   delay(50);
 }
+
+
+
+/* This code is using to control the clothesline
+const int forwardPin = 39;
+const int backwardPin = 36;
+const int delayTime = 2000;
+
+void setup()
+{
+  pinMode(forwardPin, OUTPUT);
+  pinMode(backwardPin, OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(forwardPin, LOW);
+  digitalWrite(backwardPin, LOW);
+  delay(delayTime);
+  
+  digitalWrite(forwardPin, HIGH);
+  digitalWrite(backwardPin, LOW);
+  delay(delayTime);
+  
+  digitalWrite(forwardPin, LOW);
+  digitalWrite(backwardPin, LOW);
+  delay(delayTime);
+  
+  digitalWrite(forwardPin, LOW);
+  digitalWrite(backwardPin, HIGH);
+  delay(delayTime);
+}
+*/
