@@ -1,4 +1,5 @@
 // #include <DFRobotDFPlayerMini.h>
+#include "motor_control.h"
 
 // const int PIR_PIN = 34;
 
@@ -58,33 +59,7 @@
 //   delay(50);
 // }
 
-
 // This code is using to control the clothesline
-const int forwardPin = 2; // --> 2 , 39
-const int backwardPin = 3; // --> 3 , 36
-const int delayTime = 500;
-const int stopTime = 2000;
-
-void speedControl(int speed1, int speed2) {
-  analogWrite(forwardPin, speed1);
-  analogWrite(backwardPin, speed2);
-}
-
-void stopMove() {
-  digitalWrite(forwardPin, LOW);
-  digitalWrite(backwardPin, LOW);
-}
-
-void bringoutMove() {
-  digitalWrite(forwardPin, HIGH);
-  digitalWrite(backwardPin, LOW);
-}
-
-void bringinMove() {
-  digitalWrite(forwardPin, LOW);
-  digitalWrite(backwardPin, HIGH);
-}
-
 void setup()
 {
   pinMode(forwardPin, OUTPUT);
