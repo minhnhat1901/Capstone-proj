@@ -1,15 +1,10 @@
-// #include <SoftwareSerial.h>
 #include <DFRobotDFPlayerMini.h>
 
 const int PIR_PIN = 34;
-// const int RX_PIN = 23;
-// const int TX_PIN = 22;
 
 bool pir_state = LOW; // PIR state change
 int motion_status = LOW; // current pin reading
-// int track = 1;
 
-// SoftwareSerial fxSerial(RX_PIN, TX_PIN);
 DFRobotDFPlayerMini fxPlayer;
 
 void setup() {
@@ -22,23 +17,19 @@ void setup() {
   Serial1.begin(9600);
   delay(200);
 
-  // Serial.println("Initializing DFPlayer…");
-  // if (!fxPlayer.begin(fxSerial)) {
-  //   Serial.println("DFPlayer init failed! Check wiring and SD card.");
-  // } else {
-  //   Serial.println("DFPlayer ready.");
-  // }
+  Serial.println("Initializing DFPlayer…");
+  if (!fxPlayer.begin(fxSerial)) {
+    Serial.println("DFPlayer init failed! Check wiring and SD card.");
+    while(true) {}
+  }
   
-  // Serial.println();
-
-  // pinMode(RX_PIN, INPUT);
-  // pinMode(TX_PIN, OUTPUT);
+  Serial.println("DFPlayer ready.");
 
   fxPlayer.begin(Serial1);
   
   // Can set from 0 - 30
   fxPlayer.volume(20);
-  delay(1000);
+  delay(5000);
 }
 
 void loop() {
