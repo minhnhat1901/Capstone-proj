@@ -1,7 +1,13 @@
-const int forwardPin = 2;
-const int backwardPin = 3;
+const int ledSignal = 10;
+const int backwardPin = 11;
+const int forwardPin = 12;
+const int sensorVal = A0;
+
 const int delayTime = 500;
 const int stopTime = 2000;
+
+bool hasBroughtIn = false;
+bool hasBroughtOut = false;
 
 void speedControl(int speed1, int speed2) {
   analogWrite(forwardPin, speed1);
