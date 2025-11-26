@@ -15,7 +15,7 @@
 
 // DFRobotDFPlayerMini fxPlayer;
 // Servo myservo;  // create servo object to control a servo
- 
+
 // MFRC522 mfrc522(53, 49); // Instance of the class
 
 // void setup() {
@@ -33,15 +33,15 @@
 //     Serial.println("DFPlayer init failed! Check wiring and SD card.");
 //     while(true) { delay(1000); }
 //   }
-  
+
 //   Serial.println("DFPlayer ready.");
 
 //   myservo.attach(22);
 //   myservo.write(0);
 
 //   SPI.begin(); // Init SPI bus
-//   mfrc522.PCD_Init(); // Init RC522 
-  
+//   mfrc522.PCD_Init(); // Init RC522
+
 //   // Can set from 0 - 30
 //   fxPlayer.volume(20);
 //   delay(5000);
@@ -77,7 +77,7 @@
 
 //       mfrc522.PICC_HaltA(); // Halt PICC
 //     } while (count < 3);
-    
+
 //     if (count == 3) {
 //       Serial.println("Playing track 3...");
 //       fxPlayer.play(3);
@@ -100,7 +100,7 @@
 //   delay(50);
 // }
 
-// //  Routine to dump a byte array as hex values to Serial. 
+// //  Routine to dump a byte array as hex values to Serial.
 // String printHex(byte *buffer, byte bufferSize) {
 //   String card_id = "";
 
@@ -137,8 +137,7 @@
 
 // This code is using to control the clothesline
 
-void setup()
-{
+void setup() {
   pinMode(forwardPin, OUTPUT);
   pinMode(backwardPin, OUTPUT);
   pinMode(ledSignal, OUTPUT);
@@ -148,8 +147,7 @@ void setup()
   Serial.begin(9600);
 }
 
-void loop()
-{
+void loop() {
   int value = analogRead(sensorVal);
   Serial.print("Value: ");
   Serial.println(value);
@@ -158,7 +156,7 @@ void loop()
   if (value < 800) {
     digitalWrite(ledSignal, HIGH);
     Serial.println("It's raining!!!");
-    
+
     if (!hasBroughtIn) {
       bringinMove();
       speedControl(0, 200);
@@ -182,7 +180,7 @@ void loop()
       hasBroughtOut = true;
       hasBroughtIn = false;
     }
-    
+
     stopMove();
     delay(stopTime);
   }
