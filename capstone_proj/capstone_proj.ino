@@ -2,7 +2,6 @@
 // #include <SPI.h>
 // #include <MFRC522.h>
 // #include <Servo.h>
-#include "motor_control.h"
 
 // #define SS_PIN 10
 // #define RST_PIN 9
@@ -137,51 +136,41 @@
 
 // This code is using to control the clothesline
 
-void setup() {
-  pinMode(forwardPin, OUTPUT);
-  pinMode(backwardPin, OUTPUT);
-  pinMode(ledSignal, OUTPUT);
+// void loop() {
+//   int value = analogRead(sensorVal);
+//   Serial.print("Value: ");
+//   Serial.println(value);
+//   delay(100);
 
-  delay(1000);
+//   if (value < 800) {
+//     digitalWrite(ledSignal, HIGH);
+//     Serial.println("It's raining!!!");
 
-  Serial.begin(9600);
-}
+//     if (!hasBroughtIn) {
+//       bringinMove();
+//       speedControl(0, 200);
+//       delay(delayTime);
 
-void loop() {
-  int value = analogRead(sensorVal);
-  Serial.print("Value: ");
-  Serial.println(value);
-  delay(100);
+//       hasBroughtIn = true;
+//       hasBroughtOut = false;
+//     }
 
-  if (value < 800) {
-    digitalWrite(ledSignal, HIGH);
-    Serial.println("It's raining!!!");
+//     stopMove();
+//     delay(stopTime);
+//   } else {
+//     digitalWrite(ledSignal, LOW);
+//     Serial.println("No rain!!!");
 
-    if (!hasBroughtIn) {
-      bringinMove();
-      speedControl(0, 200);
-      delay(delayTime);
+//     if (!hasBroughtOut) {
+//       bringoutMove();
+//       speedControl(150, 0);
+//       delay(delayTime);
 
-      hasBroughtIn = true;
-      hasBroughtOut = false;
-    }
+//       hasBroughtOut = true;
+//       hasBroughtIn = false;
+//     }
 
-    stopMove();
-    delay(stopTime);
-  } else {
-    digitalWrite(ledSignal, LOW);
-    Serial.println("No rain!!!");
-
-    if (!hasBroughtOut) {
-      bringoutMove();
-      speedControl(150, 0);
-      delay(delayTime);
-
-      hasBroughtOut = true;
-      hasBroughtIn = false;
-    }
-
-    stopMove();
-    delay(stopTime);
-  }
-}
+//     stopMove();
+//     delay(stopTime);
+//   }
+// }

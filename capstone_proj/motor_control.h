@@ -1,30 +1,28 @@
-const int ledSignal = 10;
-const int backwardPin = 11;
-const int forwardPin = 12;
-const int sensorVal = A0;
+#ifndef MOTOR_CONTROL_H
+#define MOTOR_CONTROL_H
 
-const int delayTime = 500;
-const int stopTime = 2000;
+#include <Arduino.h>
 
-bool hasBroughtIn = false;
-bool hasBroughtOut = false;
+class ClotheslineControl {
+  public:
+    ClotheslineControl();
+    ClotheslineControl(int ledPin, int backPin, int forePin, int sensorPin);
+    void speedControl(int speed1, int speed2);
+    void stopMove();
+    void bringoutMove();
+    void bringinMove();
+    void execute(int value);
 
-void speedControl(int speed1, int speed2) {
-  analogWrite(forwardPin, speed1);
-  analogWrite(backwardPin, speed2);
-}
+  private:
+    const int DELAYTIME = 500;
+    const int STOPTIME = 2000;
+    bool hasBroughtIn;
+    bool hasBroughtOut;
 
-void stopMove() {
-  digitalWrite(forwardPin, LOW);
-  digitalWrite(backwardPin, LOW);
-}
+    int ledSignal;
+    int backwardPin;
+    int forwardPin;
+    int sensorVal;
+};
 
-void bringoutMove() {
-  digitalWrite(forwardPin, HIGH);
-  digitalWrite(backwardPin, LOW);
-}
-
-void bringinMove() {
-  digitalWrite(forwardPin, LOW);
-  digitalWrite(backwardPin, HIGH);
-}
+#endif
