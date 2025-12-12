@@ -39,7 +39,7 @@ void ClotheslineControl::execute(int value) {
     if (!hasBroughtIn) {
       bringinMove();
       speedControl(0, 200);
-      delay(DELAYTIME);
+      delay(BRINGINTIME);
 
       hasBroughtIn = true;
       hasBroughtOut = false;
@@ -54,7 +54,7 @@ void ClotheslineControl::execute(int value) {
     if (!hasBroughtOut) {
       bringoutMove();
       speedControl(150, 0);
-      delay(DELAYTIME);
+      delay(BRINGOUTTIME);
 
       hasBroughtOut = true;
       hasBroughtIn = false;

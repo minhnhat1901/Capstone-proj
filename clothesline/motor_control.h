@@ -14,7 +14,8 @@ class ClotheslineControl {
     void execute(int value);
 
   private:
-    const int DELAYTIME = 500;
+    const int BRINGINTIME = 490;
+    const int BRINGOUTTIME = 400;
     const int STOPTIME = 2000;
     bool hasBroughtIn;
     bool hasBroughtOut;
